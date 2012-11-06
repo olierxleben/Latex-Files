@@ -1,0 +1,211 @@
+%
+% Created by Oliver Erxleben
+% Copyright (c) 2011 - 2012 . Provided as is :)
+%
+\documentclass[toc=bib,toc=listof, 12pt]{scrreprt}
+\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{empty}}} 
+\usepackage[ngerman]{babel} 
+\usepackage[utf8]{inputenc}
+\usepackage[scaled]{helvet}
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document is to be sans serif
+\usepackage[T1]{fontenc}
+
+\input{packages/dirtree}
+%--- Abstände, Ränder usw.
+\usepackage{geometry}
+\geometry{verbose,a4paper,
+	tmargin=2.5cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
+\usepackage{hyperref}
+\hypersetup{
+  ,colorlinks=true
+  ,linkcolor=black
+  ,citecolor=black
+  ,filecolor=black
+  ,urlcolor=black
+}
+\usepackage{float}
+\usepackage[absolute]{textpos} 
+\usepackage[headsepline,footsepline]{scrpage2}
+\usepackage{listings}
+\usepackage{caption}
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
+\usepackage{ifpdf}
+\ifpdf
+\usepackage[pdftex]{graphicx}
+\else
+\usepackage{graphicx}
+\fi
+%% Define Pagestyle header and footer
+\pagestyle{scrheadings}
+\automark[section]{chapter}
+\ihead{\ \\\leftmark} \chead{} \ohead{}
+\ifoot{\ebtstudentname} \cfoot{} \ofoot{\pagemark}
+\input{mycommands}
+\renewcommand{\chapterpagestyle}{scrheadings}
+\renewcommand*{\chapterheadstartvskip}{}
+
+% Titlepage settings
+\input{packages/title}
+
+\begin{document}
+\selectlanguage{ngerman}
+
+% Titleblatt einfügen
+\ThisCenterWallPaper{1}{images/thesisdeckblatt.jpg}
+\maketitle
+% Titelblatt einfügen (end)
+% Vorwort
+\pagestyle{empty}
+\input{chapters/vorwort.tex}
+% Vortwort (end)
+\newpage
+\input{chapters/notation}
+\newpage
+\tableofcontents
+% Zusammenfassung
+\newpage
+\clearpage
+\thispagestyle{empty}
+\pagenumbering{Roman} 
+
+%\addchap{Zusammenfassung} % (fold)
+%\label{cha:zusammenfassung}
+%\pagestyle{empty}
+% Zusammenfassung (end)
+
+% Beginn Thesis
+\newpage
+%\input{chapters/einleitung_start}
+\pagenumbering{arabic}
+\pagestyle{scrheadings}
+\chapter{Einleitung} % (fold)
+\setcounter{page}{1}
+\label{sec:einleitung}
+	\section{Motivation} % (fold)
+	\label{sec:motivation}
+		\input{chapters/motivation}
+	\pagebreak
+	\section{Vorgehen und Ablauf} % (fold)
+	\label{sec:vorgehen_und_ablauf}
+		\input{chapters/vorgehen_und_ablauf}			
+	\section{Betriebsmittel} 
+	\label{sec:betriebsmittel}
+		\input{chapters/betriebsmittel}
+% chapter einleitung (end)
+\newpage
+\clearpage
+\thispagestyle{empty}
+\input{chapters/ziele_start}
+\chapter{Ziele}
+\setcounter{page}{4}
+\label{sec:ziele}	
+	\section{Hintergrund}
+	\label{sec:hintergrund}
+		\input{chapters/hintergrund}
+		\pagebreak
+	\section{Problembeschreibung}
+		\input{chapters/problembeschreibung}
+	\section{Aufgabenstellung}
+		\input{chapters/aufgabenstellung}
+	%\section{Erwartete Ergebnisse}
+	%	\input{chapters/erwartete_ergebnisse}
+\newpage
+\clearpage
+\thispagestyle{empty}
+\input{chapters/grundlagen_start}	
+\chapter{Grundlagen}
+\setcounter{page}{6}
+\label{sec:grundlagen}
+	\section{Begriffsdefinitionen}
+	\label{sec:begriffsdefinitionen}
+		\subsection{Verteilte Systeme}
+			\input{chapters/verteilte_systeme}
+		\subsection{Kollaborative Systeme}
+			\input{chapters/kollaborative_systeme}
+	%	\subsection{HTML}
+	%		\input{chapters/html.tex}
+% (19.02.2012) Auskommentiert: Liegt nun in Kommunikation im Web
+%		\subsection{HTTP-Protokolle und -Server}
+%			\input{chapters/http_https}	
+	\section{Web-Anwendungen}
+	\label{sec:web_anwendungen}
+		\input{chapters/web_apps}
+	\section{Kommunikation im Web}
+	\label{sec:kommunikation_im_web}
+		\input{chapters/kommunikation_im_web}
+%	\section{Formen der Datenübertragung}
+%	\label{sec:datenuebertragung}
+%		\input{chapters/datenuebertragung}
+\newpage
+\clearpage
+\thispagestyle{empty}
+\input{chapters/websockets_start}				
+\chapter{Web-Sockets}
+\setcounter{page}{16}
+	\section{Sockets}
+	\label{sec:sockets}
+		\input{chapters/sockets}
+		\pagebreak
+	\section{Web-Sockets}
+		\input{chapters/websockets}
+\newpage
+\clearpage
+\thispagestyle{empty}
+\input{chapters/konzept_impl_start}		
+\chapter{Konzeption und Implementierung}
+\label{sec:konzeption}
+\setcounter{page}{24}
+	%\input{chapters/impl_einfuehrung}
+	\section{Entwicklungsumgebung}
+		\input{chapters/entwicklungsumgebung}
+	\section{Projektstruktur}
+		\input{chapters/projektstruktur}
+	\section{Websocket-Server}
+		\input{chapters/server_interface}
+		\input{chapters/server_class}
+		\input{chapters/socket_daemon}
+	\section{Datenaustausch}
+		\input{chapters/datenaustausch}
+	\section{Beispielimplementierung}
+		\subsection{Idee}
+			\input{chapters/idea}
+			\input{chapters/ui}
+		\subsection{Verwendete Webtechniken im Client}
+				\input{chapters/programmiersprachen}
+		\subsection{Zeichenfunktion}
+			\input{chapters/zeichenfunktion}
+		\subsection{Verbindung zum Server}
+			\input{chapters/client_server_connect}
+			\input{chapters/ws_interface}
+	\pagebreak
+\newpage
+\clearpage
+\thispagestyle{empty}
+\input{chapters/fazit_start}
+\chapter{Fazit} % (fold)
+\label{sec:fazit}
+\setcounter{page}{48}
+\input{chapters/fazit}
+
+% Abkürzungsverzeichnis
+\addchap{Abkürzungsverzeichnis} % (fold)
+\pagenumbering{Roman}
+\setcounter{page}{2}
+\label{sec:abkuerzungsverzeichnis}
+\begin{description}  
+  \input{chapters/abkuerzungsverzeichnis.tex} 
+\end{description}
+
+\listoffigures
+
+\listoftables
+\lstlistoflistings
+% Literaturverzeichnis
+\begin{appendix}
+\input{chapters/literaturverzeichnis}
+\input{chapters/anlagenverzeichnis}
+\end{appendix}
+
+\end{document}
