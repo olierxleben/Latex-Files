@@ -11,5 +11,5 @@ And in the document, use something like:
 
 # Output
 
-The Output will lok this: 
-![Output](screen.png)
+The Output will look like this: 
+![Output](https://github.com/olivererxleben/Latex-Files/blob/master/snippets/codelisting/screen.png)
