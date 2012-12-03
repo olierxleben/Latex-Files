@@ -12,4 +12,5 @@ And in the document, use something like:
 # Output
 
 The Output will look like this: 
-![[screen.png]]
+
+![[output]](screen.png)
