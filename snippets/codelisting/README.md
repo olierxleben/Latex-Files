@@ -13,4 +13,4 @@ And in the document, use something like:
 
 The Output will look like this: 
 
-![[output]](screen.png)
+![output](https://raw.github.com/olivererxleben/Latex-Files/master/snippets/codelisting/screen.png)
