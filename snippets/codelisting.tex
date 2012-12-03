@@ -1,0 +1,33 @@
+% setup of source code listings
+\usepackage{listings}
+\usepackage{courier}
+\usepackage{caption}
+\lstset{
+	basicstyle=\footnotesize\ttfamily,	% default font
+	numbers=left,												% line numbers placement
+	numberstyle=\tiny,									% line numbers style
+	%stepnumber=2,											% line number padding
+	numbersep=5pt,											% padding between line numbers and code
+	tabsize=2,							 
+	extendedchars=true,         
+	breaklines=true,										% line breaks 
+	keywordstyle=\color{red},
+	frame=b,
+	stringstyle=\color{white}\ttfamily,	% color of strings in code
+	showspaces=false,										% visualize spaces
+    showtabs=false,										% visualize tabs
+    xleftmargin=17pt,
+	framexleftmargin=17pt,
+	framexrightmargin=5pt,
+	framexbottommargin=4pt,
+	showstringspaces=false							% visualize spaces in strings        
+ }
+ 
+ \lstloadlanguages{										% Check docs for further languages ...
+         C,
+         C++
+ }
+
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{gray}{\parbox{\textwidth}{#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white}
