@@ -8,3 +8,8 @@ In the preamble, type:
 
 And in the document, use something like: 
 \lstinputlisting[caption= Hello World, label=helloworld]{path/to/source/helloworld.c}
+
+# Output
+
+The Output will lok this: 
+![Output](screen.png)
